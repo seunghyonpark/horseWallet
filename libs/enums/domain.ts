@@ -1,7 +1,7 @@
 enum DomainEnum {
   //address = "http://localhost:3000",
 
-  https://srartzone.vercel.app",
+  address = "https://srartzone.vercel.app",
 
 
 }
