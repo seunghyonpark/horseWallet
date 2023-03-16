@@ -102,7 +102,7 @@ export const loginUser = async (email: string) => {
   if (user) {
     return { success: true, user };
   } else {
-    return { success: false, message: "User not found" };
+    return { success: false, message: "loginUser User not found" };
   }
 };
 
@@ -111,7 +111,7 @@ export const getUser = async (userToken: string) => {
   if (user) {
     return { success: true, user };
   } else {
-    return { success: false, message: "User not found" };
+    return { success: false, message: "getUser User not found" };
   }
 };
 
@@ -120,7 +120,7 @@ export const getAllUsers = async () => {
   if (users) {
     return { success: true, users };
   } else {
-    return { success: false, message: "Users not found" };
+    return { success: false, message: "getAllUsers Users not found" };
   }
 };
 
@@ -156,7 +156,7 @@ export const updateUser = async (
   if (updatedUser) {
     return { success: true, updatedUser };
   }
-  return { success: false, message: "User not found" };
+  return { success: false, message: "updateUser User not found" };
 };
 
 export const deleteUser = async (userToken: string) => {
@@ -170,7 +170,7 @@ export const deleteUser = async (userToken: string) => {
   if (pasifUser) {
     return { success: true, pasifUser };
   }
-  return { success: false, message: "User not found" };
+  return { success: false, message: "deleteUser User not found" };
 };
 
 export const makeDepositMatic = async (userToken: string, amount: number) => {
@@ -184,13 +184,13 @@ export const makeDepositMatic = async (userToken: string, amount: number) => {
   if (updatedUser) {
     return { success: true, updatedUser };
   }
-  return { success: false, message: "User not found" };
+  return { success: false, message: "makeDepositMatic User not found" };
 };
 
 export const makeDepositCoin = async (userToken: string, amount: number) => {
   const user = await User.findOne({ userToken: userToken });
   if (!user) {
-    return { success: false, message: "User not found" };
+    return { success: false, message: "makeDepositCoin User not found" };
   }
   if (user.maticBalance < amount) {
     return { success: false, message: `Not Enough ${Coin.name}` };
@@ -204,7 +204,7 @@ export const makeDepositCoin = async (userToken: string, amount: number) => {
 export const makeWinDepositCoin = async (userToken: string, amount: number) => {
   const user = await User.findOne({ userToken: userToken });
   if (!user) {
-    return { success: false, message: "User not found" };
+    return { success: false, message: "makeWinDepositCoin User not found" };
   }
   user.deposit += amount;
   await user.save();
@@ -214,7 +214,7 @@ export const makeWinDepositCoin = async (userToken: string, amount: number) => {
 export const swapToMatic = async (userToken: string, amount: number) => {
   const user = await User.findOne({ userToken: userToken });
   if (!user) {
-    return { success: false, message: "User not found" };
+    return { success: false, message: "swapToMatic User not found" };
   }
   if (user.deposit < amount) {
     return { success: false, message: `Not Enough ${Coin.name}` };
@@ -228,7 +228,7 @@ export const swapToMatic = async (userToken: string, amount: number) => {
 export const makeWithdrawMatic = async (userToken: string, amount: number) => {
   const user = await User.findOne({ userToken: userToken });
   if (!user) {
-    return { success: false, message: "User not found" };
+    return { success: false, message: "makeWithdrawMatic User not found" };
   }
   if (user.maticBalance < amount) {
     return { success: false, message: "Not Enough Matic" };

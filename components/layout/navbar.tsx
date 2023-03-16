@@ -25,9 +25,13 @@ export default function Navbar() {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(inputs)
         })
-        const user = await res.json()
+        const user = await res.json();
+
+        console.log("navbar user", user);
+        
         setUser(user.user.user)
     }
+
     useEffect(() => {
         if (hasCookie("user") && !user) {
             setInterval(() => {

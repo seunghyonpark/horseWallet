@@ -64,6 +64,7 @@ export default async function handler(
     }
     res.status(200).json({ status: true, message: "User created", user: user });
   }
+  
 
   if (method === "login") {
     const { email, pass } = req.body;
